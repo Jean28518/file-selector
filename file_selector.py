@@ -8,8 +8,9 @@ def main():
     while(True):
         source_folder = jfiles.get_value_from_file("file_selector.conf", "source-folder", default=None)
         entries = jfolders.get_folder_entries(source_folder)
+        entries.sort()
         for i in range(len(entries)):
-            print("[" + str(i) + "]\t" + entries[i].replace(source_folder, ""))
+            print("[" + str(i) + "]\t" + entries[i].replace(source_folder+"/", ""))
         number = input("Number (q for quit): ")
         if number == "q":
             return

@@ -1,9 +1,21 @@
 #!/usr/bin/python3
 
+import os
 import jfiles
 import jfolders
 
+
+def change_to_file_directory():
+  """Changes the current working directory to the directory of the executing script."""
+  abspath = os.path.abspath(__file__)
+  dname = os.path.dirname(abspath)
+  os.chdir(dname)
+
+
+
 def main():
+    # Call the function to change directory
+    change_to_file_directory()
     print("File Selector: Choose your file!")
     while(True):
         source_folder = jfiles.get_value_from_file("file_selector.conf", "source-folder", default=None)
